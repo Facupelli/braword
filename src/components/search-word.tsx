@@ -38,7 +38,7 @@ export const filteredWords = computed(() => {
 export const SearchInput = reatomComponent(() => {
   const query = searchQuery();
   const resultsCount = filteredWords().length;
-  const totalCount = wordsDictionary().length;
+  // const totalCount = wordsDictionary().length;
 
   return (
     <div className="space-y-2">
