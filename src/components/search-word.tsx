@@ -1,9 +1,9 @@
 import { atom, computed } from "@reatom/core";
 import { reatomComponent } from "@reatom/react";
 import type { Word } from "../types/word";
-import { wordsDictionary } from "./word-form";
 import { Search } from "lucide-react";
 import { Input } from "./ui/input";
+import { wordsDictionary } from "@/words-dictionary";
 
 export const searchQuery = atom("", "searchQuery");
 

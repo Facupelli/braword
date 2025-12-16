@@ -1,9 +1,8 @@
+import { api } from "@/api";
+import type { Word } from "@/types/word";
 import { reatomForm } from "@reatom/core";
-import { api } from "../api";
-import type { Word } from "../types/word";
-import { wordsDictionary } from "./word-form";
 
-export const addWordForm = reatomForm(
+export const searchWordForm = reatomForm(
   {
     word: "",
   },
@@ -12,7 +11,7 @@ export const addWordForm = reatomForm(
       const result = await api.getMeaning(values.word);
 
       if (!result) {
-        return "Word not found";
+        return null;
       }
 
       const newWord: Word = {
@@ -24,12 +23,10 @@ export const addWordForm = reatomForm(
         meanings: result.meanings,
       };
 
-      wordsDictionary.set((prev) => [newWord, ...prev]);
-
-      return result;
+      return newWord;
     },
     validateOnBlur: true,
 
-    name: "addWordForm",
+    name: "searchWordForm",
   }
 );
