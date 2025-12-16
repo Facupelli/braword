@@ -91,8 +91,10 @@ const AddWordDialog = reatomComponent(() => {
           </DialogHeader>
           <div className="py-2">
             {word ? (
-              <div className="space-y-2">
-                <WordCard word={word} expandable={false} />
+              <div className="space-y-2 ">
+                <div className="overflow-y-auto max-h-[60vh]">
+                  <WordCard word={word} expandable={false} />
+                </div>
                 <div>
                   <Label className="pb-2">Sentence</Label>
                   <Input
